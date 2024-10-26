@@ -4,12 +4,12 @@
 [submodule "apps/desktop/backend"]
 	path = apps/desktop/backend
 	url = https://github.com/signeo-org/signeo-desktop-backend.git
-[submodule "apps/mobile/frontend"]
-	path = apps/mobile/frontend
-	url = https://github.com/signeo-org/signeo-mobile-frontend.git
 [submodule "apps/mobile/backend"]
 	path = apps/mobile/backend
 	url = https://github.com/signeo-org/signeo-mobile-backend.git
+[submodule "apps/mobile/frontend"]
+	path = apps/mobile/frontend
+	url = https://github.com/signeo-org/signeo-mobile-frontend.git
 [submodule "shared/libs"]
 	path = shared/libs
 	url = https://github.com/signeo-org/signeo-libs.git
