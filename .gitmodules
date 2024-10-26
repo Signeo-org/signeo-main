@@ -1,0 +1,18 @@
+[submodule "apps/desktop/frontend"]
+	path = apps/desktop/frontend
+	url = https://github.com/signeo-org/signeo-desktop-frontend.git
+[submodule "apps/desktop/backend"]
+	path = apps/desktop/backend
+	url = https://github.com/signeo-org/signeo-desktop-backend.git
+[submodule "shared/libs"]
+	path = shared/libs
+	url = https://github.com/signeo-org/signeo-libs.git
+[submodule "shared/database"]
+	path = shared/database
+	url = https://github.com/signeo-org/signeo-database.git
+[submodule "infrastructure/devops"]
+	path = infrastructure/devops
+	url = https://github.com/signeo-org/signeo-devops.git
+[submodule "docs"]
+	path = docs
+	url = https://github.com/signeo-org/signeo-docs.git
