@@ -1,4 +1,8 @@
 
-# Start the frontend and backend scripts
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd ../frontend; ./scripts/start_dev.ps1"
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd ../backend; ./scripts/run.ps1"
+#use the build script from the backend
+./scripts/build.ps1
+
+#use the start script from the frontend
+Set-Location -Path "./frontend"
+./scripts/start.ps1
+Set-Location -Path "../"
