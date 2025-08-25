@@ -4,21 +4,25 @@ set -e  # exit if any command fails
 # set working directory to the script's location
 cd "$(dirname "$0")"
 
-# Build the backend
 cd ../backend
-./scripts/build.sh
+
+# Check if both binary and model files exist
+if ls build/Release/AudioTranscriptionTool* 1> /dev/null 2>&1 \
+   && compgen -G "build/Release/models/*.bin" > /dev/null; then
+    echo "✅ Required files found, skipping rebuild."
+else
+    echo "❌ Missing binary or model files. Cleaning build/ and rebuilding..."
+    rm -rf build
+
+    # Build the backend
+    ./scripts/build.sh
+fi
+
 cd ..
 
 # Copy the backend build to the frontend resources
 mkdir -p frontend/resources
+cp backend/build/Release/AudioTranscriptionTool* frontend/resources/
 
-# Copy the built binary (works on Windows, macOS, Linux)
-if ls backend/build/Release/AudioTranscriptionTool* 1> /dev/null 2>&1; then
-    cp backend/build/Release/AudioTranscriptionTool* frontend/resources/
-fi
-
-# Copy .bin model files if they exist
-if compgen -G "backend/build/Release/models/*.bin" > /dev/null; then
-    mkdir -p frontend/resources/models
-    cp backend/build/Release/models/*.bin frontend/resources/models/
-fi
+mkdir -p frontend/resources/models
+cp backend/build/Release/models/*.bin frontend/resources/models/
